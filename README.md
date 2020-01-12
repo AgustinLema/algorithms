@@ -30,3 +30,16 @@
 - Wrote iterative function that guarantees a certain run count to reach some sensible time
 - Print max and min time and input
 - Working on median time
+
+## Backlog
+
+- Use a number generator to generate all number combinations to use as input
+- Write insertion sort
+- Write function to get median time to get a sample input that would get average runtime
+
+## Bugs
+
+- Remove peak times from algorithm runs: If one run takes too long, this card it.
+  - I'll need to track individual run time and get median
+  - Maybe it can be a mix, get 10 group of runs using old method (avg) and then get median of that
+  - I care about minimum time, but when values are too small, that doesn't work. Maybe I can run the algorithm multiple times until I get a sensible runtime and do it multiple time and keep the lowest so that I reduce peaks

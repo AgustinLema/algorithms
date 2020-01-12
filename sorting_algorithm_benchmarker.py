@@ -1,78 +1,65 @@
 import time
 import logging
-from numpy.random import randint
-from statistics import median as median_statistics
+from number_generator import (generate_input_combinations,
+                              generate_random_inputs,
+                              generate_special_cases)
+from benchmark_analysis import print_analysis
 import sorting_algorithms
 
 logging.basicConfig(level=logging.DEBUG)
 
-MIN_RUN_TIME = 0.001
+MIN_RUN_TIME = 0
 
 
-def median(*iterable, key):
-    median_statistics
-    return max(*iterable, key=key)
+def benchmark_algorithm(algorithm, input, times_sampling=20):
+    run_times = [get_algorithm_run_time(algorithm, input)
+                 for i in range(times_sampling)]
+
+    return min(run_times)
 
 
-def generate_input_combinations(input_size, start_value=0, cap_value=5):
-    if input_size <= 0:
-        return [[]]
-
-    combinations = []
-    for num in range(start_value, cap_value):
-        sub_combinations = generate_input_combinations(input_size-1, start_value, cap_value)
-        for sub_sequence in sub_combinations:
-            combinations.append([num] + sub_sequence)
-    return combinations
-
-
-def generate_random_inputs(input_size, input_count=10, value_count=10):
-    generated_numbers = [list(randint(0, value_count, input_size)) for i in range(input_count)]
-    return generated_numbers
-
-
-def benchmark_algorithm(algorithm, input, run_count=80000):
+def get_algorithm_run_time(algorithm, input, run_count=1):
     start = time.time()
     for i in range(run_count):
-        result = algorithm(input)
+        result = algorithm(input[:])
 
     run_time = time.time() - start
     assert result == sorted(input)
 
-    if run_time < MIN_RUN_TIME:
-        run_time = benchmark_algorithm(algorithm, input, run_count*10)
+    if run_time <= MIN_RUN_TIME:
+        run_time = get_algorithm_run_time(algorithm, input, run_count*10)
     else:
-        run_time /= run_count  # TODO: Use median instead of average, there can be peaks
+        # TODO: Use median instead of average, there can be peaks
+        run_time /= run_count
 
     return run_time
 
 
-def find_significant_input_data(algorithm, input_size, input_count):
+def find_significant_input_data(algorithm, inputs):
     results = {}
-    # inputs = generate_random_inputs(input_size, input_count)
-    inputs = generate_input_combinations(input_size, cap_value=input_size)
-    print(inputs)
+
     for input in inputs:
         time = benchmark_algorithm(algorithm, input)
         results[str(input)] = time
 
-    for input, time in results.items():
-        if "1, 1, 1," in input or True:
-            logging.info(f"{input}, {time}")
-
-    slowest = max(results, key=results.get)
-    average = median(results, key=results.get)
-    fastest = min(results, key=results.get)
-
-    logging.info("Important data")
-    for key in slowest, average, fastest:
-        logging.info(f"{key}, {results[key]}")
+    print_analysis(results)
 
 
 def main():
-    input_size = 3
-    input_count = 1000
-    find_significant_input_data(sorting_algorithms.builtin_sort, input_size, input_count)
+    input_size = 4
+    inputs = generate_input_combinations(input_size, cap_value=input_size)
+    # inputs = [[0, 0, 0, 0], [1, 1, 2, 3]]
+    inputs = [[1,4,2,4,5,5,2,1], [1, 1, 2, 3]]
+
+    #find_significant_input_data(sorting_algorithms.bubble_sort, inputs)
+
+    #inputs = generate_random_inputs(50, 50)
+    #find_significant_input_data(sorting_algorithms.bubble_sort, inputs)
+
+    inputs = generate_special_cases(200)
+    find_significant_input_data(sorting_algorithms.insertion_sort, inputs)
+    logging.info("#" * 10)
+    find_significant_input_data(sorting_algorithms.insertion_sort_with_binary_search, inputs)
 
 
 if __name__ == "__main__":

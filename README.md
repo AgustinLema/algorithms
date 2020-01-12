@@ -31,9 +31,12 @@
 - Print max and min time and input
 - Working on median time
 
+## Fourth pomodoro
+
+- Write a number generator to generate all number combinations to use as input
+
 ## Backlog
 
-- Use a number generator to generate all number combinations to use as input
 - Write insertion sort
 - Write function to get median time to get a sample input that would get average runtime
 
@@ -43,3 +46,5 @@
   - I'll need to track individual run time and get median
   - Maybe it can be a mix, get 10 group of runs using old method (avg) and then get median of that
   - I care about minimum time, but when values are too small, that doesn't work. Maybe I can run the algorithm multiple times until I get a sensible runtime and do it multiple time and keep the lowest so that I reduce peaks
+  - Min allowed time should be configurable
+  

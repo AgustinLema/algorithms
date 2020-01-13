@@ -35,9 +35,30 @@
 
 - Write a number generator to generate all number combinations to use as input
 
+## Non-pomodoro
+
+- Refactor code
+- Write multiple algorithms:
+  - Bubble sort and its improvement
+  - Insertion sort and its improvement
+  - Searching algorithm to find position where a number would fit
+- Reduce peak run times by running algorithms less times in a loop and by looking the shortest result from 20
+
+## Fifth-pomodoro
+
+- Wrote a way to write results into a CSV to compare algorithms and used an vscode extension to show them and sort them. Also analyzed the results.
+- Started writing selection sort, should be done but not tested.
+
+## Sixth-pomodoro
+
+- Tested and compared selection sort
+- Wrote merge sort and tested it
+
 ## Backlog
 
-- Write insertion sort
+- Write improved merge sort (No new list creation)
+- Write quick sort
+- Write improved merge sort? https://en.wikipedia.org/wiki/Merge_sort#Variants AND natural merge sort
 - Write function to get median time to get a sample input that would get average runtime
 
 ## Bugs

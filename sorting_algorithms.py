@@ -99,6 +99,52 @@ def insertion_sort_with_binary_search(numbers):
     return numbers
 
 
+def selection_sort(numbers):
+    # Find smallest element in list and move to pos 0
+    # Find smallest element in rest of list and move to pos 1
+    # Etc
+    numbers_len = len(numbers)
+    for pos_to_fill in range(0, numbers_len - 1):
+        min_value_pos = pos_to_fill
+        for pos_pointer in range(pos_to_fill + 1, numbers_len):
+            if numbers[pos_pointer] < numbers[min_value_pos]:
+                min_value_pos = pos_pointer
+
+        numbers[pos_to_fill], numbers[min_value_pos] = numbers[min_value_pos], numbers[pos_to_fill]
+    return numbers
+
+
+def merge_sort(numbers, start_pos=None, end_pos=None):
+    # Divide and conquer: take first half and sort it, same with second half, then mix them.
+    # The middle is included in the first half
+
+    if (start_pos is None):
+        start_pos = 0
+    if (end_pos is None):
+        end_pos = len(numbers) - 1
+
+    # Exit condition. If list is just one element, then return it.
+    if start_pos == end_pos:
+        return numbers
+
+    middle = (start_pos + end_pos) // 2
+    assert middle != -1
+    merge_sort(numbers, start_pos, middle), merge_sort(numbers, middle + 1, end_pos)
+
+    l_pointer, r_pointer = start_pos, middle + 1
+    ordered = []
+    for new_pos in range(start_pos, end_pos + 1):
+        if r_pointer > end_pos or (l_pointer <= middle and numbers[l_pointer] <= numbers[r_pointer]):
+            ordered.append(numbers[l_pointer])
+            l_pointer += 1
+        else:
+            ordered.append(numbers[r_pointer])
+            r_pointer += 1
+    numbers[start_pos:end_pos + 1] = ordered[:]
+    return numbers
+
+
 builtin_sort = sorted
 
-#print("Insertion sort: ", insertion_sort_with_binary_search([1,5,2,3215,2365,346,23,121,5,56,3]))
+if __name__ == "__main__":
+    print("selection sort: ", merge_sort([1,5,2,3215,2365,346,23,121,5,56,3]))

@@ -54,10 +54,18 @@
 - Tested and compared selection sort
 - Wrote merge sort and tested it
 
+## Non-pomodoro-2
+
+- Refactor code
+
 ## Backlog
 
-- Write improved merge sort (No new list creation)
+- Write heap data structure
+- Write heapsort
 - Write quick sort
+- Write Block Mergesort
+- Write Timsort
+- Write counting sort
 - Write improved merge sort? https://en.wikipedia.org/wiki/Merge_sort#Variants AND natural merge sort
 - Write function to get median time to get a sample input that would get average runtime
 

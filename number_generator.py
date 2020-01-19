@@ -15,8 +15,8 @@ def generate_input_combinations(input_size, start_value=0, cap_value=5):
     return combinations
 
 
-def generate_random_inputs(input_size, input_count=10, value_count=10):
-    def get_random(): return randint(0, value_count, input_size)
+def generate_random_inputs(input_size, input_count=10, value_count=10, start_value=0):
+    def get_random(): return randint(start_value, value_count-start_value, input_size)
     generated_numbers = [list(get_random()) for i in range(input_count)]
     return generated_numbers
 

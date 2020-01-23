@@ -18,7 +18,8 @@ def main():
 
     #find_significant_input_data(sorting_algorithms.bubble_sort, inputs)
 
-    #inputs = generate_random_inputs(50, 50)
+    #inputs = generate_random_inputs(800, 10,800)
+    #print(benchmark_algorithm_with_inputs(sorting_algorithms.quick_sort, inputs, comparing_function=sorted))
     #find_significant_input_data(sorting_algorithms.bubble_sort, inputs)
 
     inputs = generate_special_cases(800)
@@ -39,7 +40,11 @@ def main():
         sorting_algorithms.insertion_sort_with_binary_search,
         sorting_algorithms.builtin_sort,
         sorting_algorithms.selection_sort,
-        sorting_algorithms.merge_sort
+        sorting_algorithms.merge_sort,
+        sorting_algorithms.heap_sort_extracting,
+        sorting_algorithms.heap_sort_in_place,
+        sorting_algorithms.quick_sort,
+        sorting_algorithms.quick_sort_center_pivot,
     ]:
         export_benchmark_results(benchmark_algorithm_with_inputs(algorithm, inputs, comparing_function=sorted), algorithm, file_name)
 

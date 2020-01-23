@@ -1,4 +1,5 @@
 from searching_algorithms import find_pos_in_list
+from data_structures import MaxHeap
 
 
 def bubble_sort(numbers):
@@ -144,7 +145,58 @@ def merge_sort(numbers, start_pos=None, end_pos=None):
     return numbers
 
 
+def heap_sort_extracting(numbers):
+    mh = MaxHeap(numbers)
+    return [mh.extract_max() for i in range(len(mh.elements))][::-1]
+
+
+def heap_sort_in_place(numbers):
+    mh = MaxHeap(numbers)
+    mh.get_sorted_list()
+    return numbers
+
+
+def quick_sort(numbers, start=0, end=None):
+    if end is None:
+        end = len(numbers)
+    if start >= end:
+        return
+    pivot_pos = qs_partition(numbers, start, end)
+    quick_sort(numbers, start, pivot_pos)
+    quick_sort(numbers, pivot_pos + 1, end)
+    return numbers
+
+
+def quick_sort_center_pivot(numbers, start=0, end=None):
+    if end is None:
+        end = len(numbers)
+    if start >= end:
+        return
+    middle = (start + end) // 2
+    numbers[middle], numbers[end - 1] = numbers[end - 1], numbers[middle]
+    pivot_pos = qs_partition(numbers, start, end)
+    quick_sort_center_pivot(numbers, start, pivot_pos)
+    quick_sort_center_pivot(numbers, pivot_pos + 1, end)
+    return numbers
+
+
+def qs_partition(numbers, start, end):
+    pivot_pos = end - 1
+    pivot_value = numbers[pivot_pos]
+    next_lower_index = start
+    for pos in range(start, pivot_pos):
+        number = numbers[pos]
+        if number <= pivot_value:
+            numbers[next_lower_index], numbers[pos] = numbers[pos], numbers[next_lower_index]
+            next_lower_index += 1
+    numbers[pivot_pos], numbers[next_lower_index] = numbers[next_lower_index], numbers[pivot_pos]
+    return next_lower_index
+
+
 builtin_sort = sorted
 
 if __name__ == "__main__":
     print("selection sort: ", merge_sort([1,5,2,3215,2365,346,23,121,5,56,3]))
+    print("heap_sort_extracting sort: ", heap_sort_extracting([1,5,2,3215,2365,346,23,121,5,56,3]))
+    print("quick_sort: ", quick_sort([1,5,2,3215,2365,346,23,121,5,56,3]))
+    print("quick_sort center pivot: ", quick_sort_center_pivot([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]))

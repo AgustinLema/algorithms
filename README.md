@@ -57,17 +57,41 @@
 ## Non-pomodoro-2
 
 - Refactor code
+- Add array function to find max_subarray in linear and logn time
+
+## Seventh-pomodoro
+
+- Start writing heap datastructure
+
+## Eight-pomodoro
+
+- Wrote most part of heap, need to tune functions
+- Wrote a hackish way to print the heap tree
+
+## Non-pomodoro-2
+
+- Made working version of heap
+- Made working version of heapsort
+
+## Ninth-pomodoro
+
+- Completed merge sort in place and compared with the extracting one
+
+## Non-pomodoro-3
+
+- Write quicksort
+- Write quicksort with center pivoting
 
 ## Backlog
 
-- Write heap data structure
-- Write heapsort
-- Write quick sort
+- Write quick sort improvements: Take pivot from the middle, make three groups so if values are same as pivot they are not partitioned again
 - Write Block Mergesort
 - Write Timsort
 - Write counting sort
 - Write improved merge sort? https://en.wikipedia.org/wiki/Merge_sort#Variants AND natural merge sort
 - Write function to get median time to get a sample input that would get average runtime
+- Write priority queue with a min heap
+- Write a heap insert value and increase key
 
 ## Bugs
 

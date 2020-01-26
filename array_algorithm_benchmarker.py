@@ -32,6 +32,23 @@ def main():
     ]:
         export_benchmark_results(benchmark_algorithm_with_inputs(algorithm, inputs, comparing_function=array_algorithms.find_biggest_subarray_linear), algorithm, file_name)
 
+    file_name = "array_algorithms_report2.csv"
+    try:
+        os.remove(file_name)
+    except FileNotFoundError:
+        pass
+
+    inputs = generate_random_inputs(input_size*250, 4, input_size, -input_size)
+    k = 7
+    def sort_and_find_index(x): return array_algorithms.sort_and_find_index(x, k)
+    def center_partitioning_select(x): return array_algorithms.center_partitioning_select(x, k)
+
+    for algorithm in [
+        center_partitioning_select,
+        sort_and_find_index
+    ]:
+        export_benchmark_results(benchmark_algorithm_with_inputs(algorithm, inputs, comparing_function=sort_and_find_index), algorithm, file_name)
+
 
 if __name__ == "__main__":
     main()

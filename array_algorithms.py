@@ -1,4 +1,7 @@
 
+from common_algorithms import partition
+
+
 def find_biggest_subarray_logn(numbers, start_pos=0, end_pos=None):
     if end_pos is None:
         end_pos = len(numbers)
@@ -44,6 +47,28 @@ def find_biggest_subarray_linear(numbers):
     return subarray_max
 
 
+def center_partitioning_select(numbers, index, start=0, end=None):
+    if end is None:
+        end = len(numbers)
+
+    if start == end - 1:
+        return numbers[start]
+
+    middle = (start + end) // 2
+    numbers[middle], numbers[end - 1] = numbers[end - 1], numbers[middle]
+    pivot_pos = partition(numbers, start, end)
+    if pivot_pos == index:
+        return numbers[pivot_pos]
+    elif pivot_pos > index:
+        return center_partitioning_select(numbers, index, start, pivot_pos)
+    else:
+        return center_partitioning_select(numbers, index, pivot_pos + 1, end)
+
+
+def sort_and_find_index(numbers, index):
+    return sorted(numbers)[index]
+
+
 if __name__ == "__main__":
     result = find_biggest_subarray_logn([1, 2, 3, 4, -1])
     assert result == 10
@@ -51,3 +76,5 @@ if __name__ == "__main__":
     result = find_biggest_subarray_linear([1, 2, 3, 4, -1])
     assert result == 10
     assert find_biggest_subarray_linear([9, -3, -2, 5, 2, -4, 3]) == 11
+    k, numbers = 4, [9, -3, -2, 5, 2, -4, 3] 
+    assert center_partitioning_select(numbers, k) == sort_and_find_index(numbers, k)

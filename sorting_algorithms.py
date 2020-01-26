@@ -1,5 +1,6 @@
 from searching_algorithms import find_pos_in_list
 from data_structures import MaxHeap
+from common_algorithms import partition
 
 
 def bubble_sort(numbers):
@@ -161,7 +162,7 @@ def quick_sort(numbers, start=0, end=None):
         end = len(numbers)
     if start >= end:
         return
-    pivot_pos = qs_partition(numbers, start, end)
+    pivot_pos = partition(numbers, start, end)
     quick_sort(numbers, start, pivot_pos)
     quick_sort(numbers, pivot_pos + 1, end)
     return numbers
@@ -174,23 +175,10 @@ def quick_sort_center_pivot(numbers, start=0, end=None):
         return
     middle = (start + end) // 2
     numbers[middle], numbers[end - 1] = numbers[end - 1], numbers[middle]
-    pivot_pos = qs_partition(numbers, start, end)
+    pivot_pos = partition(numbers, start, end)
     quick_sort_center_pivot(numbers, start, pivot_pos)
     quick_sort_center_pivot(numbers, pivot_pos + 1, end)
     return numbers
-
-
-def qs_partition(numbers, start, end):
-    pivot_pos = end - 1
-    pivot_value = numbers[pivot_pos]
-    next_lower_index = start
-    for pos in range(start, pivot_pos):
-        number = numbers[pos]
-        if number <= pivot_value:
-            numbers[next_lower_index], numbers[pos] = numbers[pos], numbers[next_lower_index]
-            next_lower_index += 1
-    numbers[pivot_pos], numbers[next_lower_index] = numbers[next_lower_index], numbers[pivot_pos]
-    return next_lower_index
 
 
 def counting_sort(numbers, k=1000, getf=lambda n: n):
@@ -214,7 +202,7 @@ def counting_sort(numbers, k=1000, getf=lambda n: n):
 
 
 def radix_sort(numbers, base=10):
-    max_number = max(numbers) 
+    max_number = max(numbers)
     num_digits = 1
     while max_number > 10:
         num_digits += 1

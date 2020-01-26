@@ -11,7 +11,7 @@ def get_algorithm_run_time(algorithm, input, run_count=1, comparing_function=Non
 
     run_time = time.time() - start
     if comparing_function is not None:
-        assert result == comparing_function(input)
+        assert result == comparing_function(input), "Algorithm %s output is returning %s when expected output is %s" % (algorithm.__name__, result, comparing_function(input))
 
     if run_time <= MIN_RUN_TIME:
         run_time = get_algorithm_run_time(algorithm, input, run_count*10)

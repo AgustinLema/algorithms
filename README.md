@@ -87,16 +87,24 @@
 - Write count sort
 - Write radix sort
 
+## Tenth-pomodoro
+
+- Write array select order index in linear time with middle partitioning
+- Move partitioning code to common_algorithms file
+
 ## Backlog
 
+- Write randomnized select index (and later the non randomnized one, that uses median of medians to select pivot)
 - Write quick sort improvements: make three groups so if values are same as pivot they are not partitioned again (Similar to how hoare partition works)
 - Write Block Mergesort
 - Write Timsort
 - Write counting sort
 - Write improved merge sort? https://en.wikipedia.org/wiki/Merge_sort#Variants AND natural merge sort
 - Write function to get median time to get a sample input that would get average runtime
+- Write bucket sort
 - Write priority queue with a min heap
 - Write a heap insert value and increase key
+- Write iterative quicksort
 
 ## Bugs
 

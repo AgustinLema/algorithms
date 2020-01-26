@@ -45,6 +45,8 @@ def main():
         sorting_algorithms.heap_sort_in_place,
         sorting_algorithms.quick_sort,
         sorting_algorithms.quick_sort_center_pivot,
+        sorting_algorithms.counting_sort,
+        sorting_algorithms.radix_sort,
     ]:
         export_benchmark_results(benchmark_algorithm_with_inputs(algorithm, inputs, comparing_function=sorted), algorithm, file_name)
 

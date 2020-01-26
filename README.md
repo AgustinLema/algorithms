@@ -82,9 +82,14 @@
 - Write quicksort
 - Write quicksort with center pivoting
 
+## Non-pomodoro-4
+
+- Write count sort
+- Write radix sort
+
 ## Backlog
 
-- Write quick sort improvements: Take pivot from the middle, make three groups so if values are same as pivot they are not partitioned again
+- Write quick sort improvements: make three groups so if values are same as pivot they are not partitioned again (Similar to how hoare partition works)
 - Write Block Mergesort
 - Write Timsort
 - Write counting sort

@@ -193,6 +193,38 @@ def qs_partition(numbers, start, end):
     return next_lower_index
 
 
+def counting_sort(numbers, k=1000, getf=lambda n: n):
+    counts = [0] * k
+    numbers_len = len(numbers)
+    ordered = [0] * numbers_len
+    # Count how many occurences of each number
+    for i in range(numbers_len):
+        number = getf(numbers[i])
+        counts[number] += 1
+    # Add the count of previous numbers so that we store total amount of numbers equal or smaller for each pos
+    for i in range(1, k):
+        counts[i] += counts[i-1]
+
+    for i in range(numbers_len - 1, -1, -1):
+        number = numbers[i]
+        pos = counts[getf(number)]
+        ordered[pos - 1] = number
+        counts[getf(number)] -= 1
+    return ordered
+
+
+def radix_sort(numbers, base=10):
+    max_number = max(numbers) 
+    num_digits = 1
+    while max_number > 10:
+        num_digits += 1
+        max_number //= 10
+
+    for digit in range(num_digits):
+        numbers = counting_sort(numbers, base, lambda n: (n // base**digit) % base)
+    return numbers
+
+
 builtin_sort = sorted
 
 if __name__ == "__main__":
@@ -200,3 +232,5 @@ if __name__ == "__main__":
     print("heap_sort_extracting sort: ", heap_sort_extracting([1,5,2,3215,2365,346,23,121,5,56,3]))
     print("quick_sort: ", quick_sort([1,5,2,3215,2365,346,23,121,5,56,3]))
     print("quick_sort center pivot: ", quick_sort_center_pivot([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]))
+    print("counting sort ", counting_sort([1,5,2,3215,2365,346,23,121,5,56,3], 3216))
+    print("radix sort ", radix_sort([1,5,2,3215,2365,346,23,121,5,56,3]))

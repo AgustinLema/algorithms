@@ -92,9 +92,16 @@
 - Write array select order index in linear time with middle partitioning
 - Move partitioning code to common_algorithms file
 
-## Backlog
+## Eleventh-pomodoro
+
+- Add a test and move files. Get coverage
+
+## Twelft-pomodoro
 
 - Write a queue and a stack using an underlying array (list of fixed size)
+
+## Backlog
+
 - Write a deque
 - Write a linked list and a double linked list. Implement insert relative to another element and at beginning.
 - Implement a queue and a stack using a single linked list

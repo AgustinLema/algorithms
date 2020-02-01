@@ -1,5 +1,5 @@
 from searching_algorithms import find_pos_in_list
-from data_structures import MaxHeap
+from data_structures.max_heap import MaxHeap
 from common_algorithms import partition
 
 

@@ -1,11 +1,10 @@
-import os, sys
-sys.path.insert(0, "src")
-
 import sorting_algorithms
+
 
 def test_algorithms():
     numbers = [1, 5, 2, 715, 965, 346, 23, 121, 5, 56, 3]
     sorted_numbers = sorted(numbers)
+
     algorithms = [
             sorting_algorithms.bubble_sort,
             sorting_algorithms.bubble_sort_memory,
@@ -22,5 +21,6 @@ def test_algorithms():
             sorting_algorithms.counting_sort,
             sorting_algorithms.radix_sort,
         ]
-    for algorithm in algorithms: 
+
+    for algorithm in algorithms:
         assert sorted_numbers == algorithm(numbers[:])

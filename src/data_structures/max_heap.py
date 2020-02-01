@@ -19,7 +19,7 @@ class MaxHeap:
     def heapify(self, index):
         highest_value = self.elements[index]
 
-        indexes = [i  for i in [self._left(index), self._right(index)] if self.heap_len > i]
+        indexes = [i for i in [self._left(index), self._right(index)] if self.heap_len > i]
         swap_idx = index
 
         for position in indexes:

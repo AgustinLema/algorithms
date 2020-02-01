@@ -100,9 +100,16 @@
 
 - Write a queue and a stack using an underlying array (list of fixed size)
 
+## Fourteenth-pomodoro
+
+- Write a Deque wth an array and tests
+
+## 15th & 16th pomodoro
+
+- Write a linked list and a double linked list
+
 ## Backlog
 
-- Write a deque
 - Write a linked list and a double linked list. Implement insert relative to another element and at beginning.
 - Implement a queue and a stack using a single linked list
 - Write a tree with linked elements and a recursive procedure to print all elements

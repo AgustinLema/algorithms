@@ -34,6 +34,10 @@ class LinkedList():
         previous_node['next'] = previous_node['next']['next']
 
     def remove(self, node):
+        if node == self.root:
+            self.root = self.root['next']
+            return
+
         previous_node = self.root
         while previous_node['next'] != node: # TODO: Add checks if element is not in list
             previous_node = previous_node['next']

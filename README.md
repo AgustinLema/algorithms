@@ -68,7 +68,7 @@
 - Wrote most part of heap, need to tune functions
 - Wrote a hackish way to print the heap tree
 
-## Non-pomodoro-2
+## Non-pomodoro-3
 
 - Made working version of heap
 - Made working version of heapsort
@@ -77,12 +77,12 @@
 
 - Completed merge sort in place and compared with the extracting one
 
-## Non-pomodoro-3
+## Non-pomodoro-4
 
 - Write quicksort
 - Write quicksort with center pivoting
 
-## Non-pomodoro-4
+## Non-pomodoro-5
 
 - Write count sort
 - Write radix sort
@@ -108,10 +108,12 @@
 
 - Write a linked list and a double linked list
 
+## 17th pomodoro
+
+- Implement a queue and a stack using a single linked list
+
 ## Backlog
 
-- Write a linked list and a double linked list. Implement insert relative to another element and at beginning.
-- Implement a queue and a stack using a single linked list
 - Write a tree with linked elements and a recursive procedure to print all elements
 - Write an algorithm that prints all elements of a tree using a non-recursive algorithm and a stack. Then write it with only constant space.
 - Write a hashmap using a linked list

@@ -94,6 +94,23 @@
 
 ## Backlog
 
+- Write a queue and a stack using an underlying array (list of fixed size)
+- Write a deque
+- Write a linked list and a double linked list. Implement insert relative to another element and at beginning.
+- Implement a queue and a stack using a single linked list
+- Write a tree with linked elements and a recursive procedure to print all elements
+- Write an algorithm that prints all elements of a tree using a non-recursive algorithm and a stack. Then write it with only constant space.
+- Write a hashmap using a linked list
+- Write a hashmap with open addressing
+- Write a hashmap like python builtin dict that preserves order: https://morepypy.blogspot.com/2015/01/faster-more-memory-efficient-and-more.html
+- Write a recursive inorder tree walk algorithm
+- Write a iterative inorder tree walk algorithm with a stack
+- Write a iterative inorder tree walk algorithm without a stack
+- Write a search algorithm for binary search tree iterative and recursive
+- Write recursive and iterative tree minimum, maximum, predecessor and successor
+- Write a tree walk by calling tree minimum and then successor until we print the whole tree
+- Write binary tree insertion
+- Write binary tree deletion
 - Write randomnized select index (and later the non randomnized one, that uses median of medians to select pivot)
 - Write quick sort improvements: make three groups so if values are same as pivot they are not partitioned again (Similar to how hoare partition works)
 - Write Block Mergesort

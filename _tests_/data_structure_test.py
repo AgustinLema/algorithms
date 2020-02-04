@@ -4,6 +4,7 @@ from data_structures.deque import Deque
 from data_structures.linked_list import LinkedList, DoubleLinkedList
 from data_structures.linked_queue import LinkedQueue
 from data_structures.linked_stack import LinkedStack
+from data_structures.binary_search_tree import BinarySearchTree
 
 
 def test_queue():
@@ -98,3 +99,17 @@ def test_linked_stack():
 
     numbers = [s.pop() for i in range(10)]
     assert numbers == [10, 9, 8, 7, 6, 5, 3, 2, 1, 0]
+
+def test_binary_search_tree():
+    bst = BinarySearchTree()
+    numbers = [9, 1, 52, 5, 11, 523, 7, 1, 0, -5, 42, 3, 57]
+    sorted_numbers = sorted(numbers)
+    bst.insert_list(numbers)
+    assert bst.get_sorted_list() == sorted(numbers)
+    assert bst.search(sorted_numbers[5])['value'] == 5
+    assert bst.minimum()['value'] == min(numbers)
+    assert bst.maximum()['value'] == max(numbers)
+    assert bst.predecessor(bst.search(sorted_numbers[4]))['value'] == sorted_numbers[3]
+    assert bst.successor(bst.search(sorted_numbers[4]))['value'] == sorted_numbers[5]
+    bst.remove(numbers[4])
+    assert bst.get_sorted_list() == sorted_numbers.remove(numbers[4])

@@ -112,9 +112,24 @@
 
 - Implement a queue and a stack using a single linked list
 
+## 18th pomodoro
+
+- Wrote tests for binary search tree and started writing the datastructure
+
+## 19th pomodoro
+
+- Implemented most binary search tree except for the delete functionality
+
 ## Backlog
 
+- Write fibonacci with memoization and bottom-up appraoches
+- Write longest common subsequence with dynamic programming
+- Write algorithm to find longest increasing subsequence with dynamic programming
+- Write a dynamic programming algorithm that finds the longest palindrome subsequence
+- Write an algorithm to solve the activity selection problem (with start and finish, without overlaps, looking for more activities) with dynamic programming and greedy
+- Solve the fractional and 1/o Knapsack problem with greedy and dynamic programming respectively
 - Write a tree with linked elements and a recursive procedure to print all elements
+- Refactor tree to use NullNodes
 - Write an algorithm that prints all elements of a tree using a non-recursive algorithm and a stack. Then write it with only constant space.
 - Write a hashmap using a linked list
 - Write a hashmap with open addressing
@@ -125,7 +140,6 @@
 - Write a search algorithm for binary search tree iterative and recursive
 - Write recursive and iterative tree minimum, maximum, predecessor and successor
 - Write a tree walk by calling tree minimum and then successor until we print the whole tree
-- Write binary tree insertion
 - Write binary tree deletion
 - Write randomnized select index (and later the non randomnized one, that uses median of medians to select pivot)
 - Write quick sort improvements: make three groups so if values are same as pivot they are not partitioned again (Similar to how hoare partition works)

@@ -5,6 +5,7 @@ from data_structures.linked_list import LinkedList, DoubleLinkedList
 from data_structures.linked_queue import LinkedQueue
 from data_structures.linked_stack import LinkedStack
 from data_structures.binary_search_tree import BinarySearchTree
+from data_structures.hashmap import HashMap
 
 
 def test_queue():
@@ -100,6 +101,7 @@ def test_linked_stack():
     numbers = [s.pop() for i in range(10)]
     assert numbers == [10, 9, 8, 7, 6, 5, 3, 2, 1, 0]
 
+
 def test_binary_search_tree():
     bst = BinarySearchTree()
     numbers = [9, 1, 52, 5, 11, 523, 7, 1, 0, -5, 42, 3, 57]
@@ -113,3 +115,19 @@ def test_binary_search_tree():
     assert bst.successor(bst.search(sorted_numbers[4]))['value'] == sorted_numbers[5]
     bst.remove(numbers[4])
     assert bst.get_sorted_list() == sorted_numbers.remove(numbers[4])
+
+
+def test_hashmap():
+    hm = HashMap(10)
+    assert hm.get('MYKEY') is None, "Key must be nonexisting if element wasn't found and there is no default"
+    assert hm.get('MYKEY', 'default_value') == 'default_value', "Key must be default value if element wasn't found"
+    hm.set('MYKEY', 'real_value')
+    assert hm.get('MYKEY') == 'real_value', "Return value saved earlier"
+    assert hm.get('MYKEY', 'default_value') == 'real_value', "Return value saved earlier even if there is one default in get"
+    hm.set('ANOTHER_KEY', 'another_value')
+    assert hm.get('ANOTHER_KEY') == 'another_value', "The value for a second inserted key should be accessible"
+    assert hm.get('MYKEY') == 'real_value', "Value should stay unchanged if another index was changed"
+
+    hm.set('MYKEY', 'my_new_value')
+    assert hm.get('MYKEY') == 'my_new_value', "Value should be changed after updating existing index"
+    assert hm.get('ANOTHER_KEY') == 'another_value', "Value should stay unchanged if another index was changed"
